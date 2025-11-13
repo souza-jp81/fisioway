@@ -1,0 +1,540 @@
+/* -------------------------------------------------------------------------- */
+/* CSS: Estilo Rodolfo Mori (High Performance)                               */
+/* -------------------------------------------------------------------------- */
+
+/* ------------------ 1. Variáveis & Reset Global ----------------- */
+
+:root {
+    /* Cores (Dark/High Contrast) */
+    --color-primary: #0077B6; /* Azul Elétrico - Destaque Principal (CTA) */
+    --color-secondary: #005A8D; /* Azul Escuro - Hover/Fundo Secundário */
+    --color-background: #0D1117; /* Fundo Principal (Dark Dashboard/Code Editor) */
+    --color-surface: #161B22; /* Superfícies de Cards/Elementos */
+    --color-text-main: #E6EDF3; /* Texto Principal (Quase Branco) */
+    --color-text-light: #8B949E; /* Texto Secundário/Subtítulos */
+    --color-border: #30363D; /* Linhas de Separação */
+
+    /* Tipografia */
+    --font-family: 'Poppins', sans-serif;
+    --border-radius: 8px;
+}
+
+/* Reset básico e tipografia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-text-main);
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-main);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: var(--color-text-light);
+}
+
+/* ------------------ 2. Utilitários de Layout ----------------- */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.15rem;
+    margin-bottom: 40px;
+    color: var(--color-text-light);
+}
+
+/* ------------------ 3. Barra de Navegação ----------------- */
+
+.navbar {
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-main); /* Logo forte e visível */
+}
+
+.nav-links a {
+    color: var(--color-text-light);
+    font-weight: 600;
+    margin-left: 30px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ------------------ 4. Botões de Ação (CTAs) ----------------- */
+
+.btn-primary, .btn-download, .btn-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo Principal (High Impact) */
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-background);
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0, 119, 182, 0.4);
+}
+
+.btn-primary i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-text-main);
+    box-shadow: 0 6px 20px rgba(0, 119, 182, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-primary:hover i {
+    transform: translateX(5px);
+}
+
+/* Botão de Download na lista de materiais */
+.btn-download {
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 10px 20px;
+    margin-left: auto; /* Alinha à direita no flex item */
+}
+
+.btn-download:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    box-shadow: 0 2px 10px rgba(0, 119, 182, 0.4);
+}
+
+/* Botão Voltar (Materiais) */
+.btn-back {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    margin-top: 20px;
+}
+
+.btn-back:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+
+/* ------------------ 5. Seção Hero (Index) ----------------- */
+
+/* Este bloco é útil apenas para a index.html. */
+.hero-section {
+    padding: 100px 0;
+    text-align: left;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 60px; 
+}
+
+.hero-text {
+    flex: 2; 
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--color-text-light);
+}
+
+.hero-image {
+    flex: 1; 
+    max-width: 450px; /* <<< AJUSTE PARA TAMANHO DA IMAGEM */
+    margin: 0 auto; 
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto; 
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: block;
+    object-fit: cover;
+}
+
+/* ------------------ 6. Benefícios (Index) ----------------- */
+
+.benefits {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.benefit-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    max-width: 400px;
+}
+
+.benefit {
+    background-color: var(--color-surface);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.benefit:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: 0 15px 30px rgba(0, 119, 182, 0.15);
+}
+
+.benefit i {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.benefit h3 {
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+    color: var(--color-text-main);
+}
+
+/* ------------------ 7. Header (Materiais) ----------------- */
+
+.page-header {
+    background-color: var(--color-surface);
+    padding: 80px 0 40px;
+    text-align: center;
+    border-bottom: 5px solid var(--color-primary); /* Linha de foco */
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+}
+
+
+/* ------------------ 8. Lista de Downloads (Materiais) ----------------- */
+
+/* Grid para as seções simétricas (3 colunas iguais) */
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    align-items: stretch; /* Garante que todos os cards tenham a mesma altura */
+}
+
+.subject-area {
+    /* Estilo de Card para cada área de matéria */
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    text-align: left;
+    display: flex; 
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.subject-area:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 30px rgba(0, 119, 182, 0.1);
+}
+
+.subject-title {
+    font-size: 1.5rem; 
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    color: var(--color-primary); /* Título em azul de destaque */
+}
+
+.subject-title i {
+    margin-right: 15px;
+    color: var(--color-text-main); /* Ícone em branco */
+}
+
+.download-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-grow: 1; /* Permite que a lista se expanda para preencher a altura */
+}
+
+.download-item {
+    display: flex;
+    align-items: center;
+    padding: 15px; 
+    background-color: var(--color-background); 
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.download-item:hover {
+    border-color: var(--color-primary);
+    background-color: #1b2128; /* Levemente mais claro no hover */
+}
+
+.download-item i {
+    font-size: 1.8rem; 
+    color: var(--color-text-light);
+    min-width: 30px;
+    text-align: center;
+}
+
+.download-item:hover i {
+    color: var(--color-primary);
+}
+
+.download-info {
+    flex-grow: 1;
+    margin-left: 15px;
+    text-align: left;
+}
+
+.download-info h3 {
+    font-size: 1.05rem; 
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.download-info p {
+    font-size: 0.85rem; 
+    color: var(--color-text-light);
+}
+
+.btn-download {
+    padding: 8px 15px; 
+    font-size: 0.8rem;
+    margin-left: 10px; 
+}
+
+/* O separador é oculto, pois o grid faz a separação */
+.separator {
+    display: none;
+}
+
+/* ------------------ 9. Rodapé ----------------- */
+
+.footer {
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: 25px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.footer-content p {
+    color: var(--color-text-light);
+}
+
+.social-icons a {
+    color: var(--color-text-light);
+    font-size: 1.2rem;
+    margin-left: 15px;
+}
+
+.social-icons a:hover {
+    color: var(--color-primary);
+}
+
+/* ------------------ 10. Responsividade (Mobile First) ----------------- */
+
+@media (max-width: 1024px) {
+    /* Grid de 3 colunas vira 1 coluna em telas menores/tablets */
+    .subject-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* Configurações de layout para telas pequenas */
+    
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px; 
+    }
+    
+    .hero-image {
+        max-width: 350px; 
+    }
+
+    .hero-text {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .benefits {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .benefit-link {
+        max-width: 100%;
+    }
+
+    /* Navegação */
+    .navbar .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        margin: 5px 10px;
+    }
+
+    /* Rodapé */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    /* Itens de Download (empilhamento vertical) */
+    .download-item {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .download-item i {
+        margin-bottom: 10px;
+    }
+
+    .download-info {
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+
+    .btn-download {
+        margin-left: 0;
+        width: 100%; /* Botão ocupa a largura total no mobile */
+    }
+
+    .subject-title {
+        font-size: 1.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+}
