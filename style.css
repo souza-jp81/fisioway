@@ -349,7 +349,8 @@ p {
 
 .subject-title i {
     margin-right: 15px;
-    color: var(--color-text-main); /* Ícone em branco */
+    color: var(--color-text-main);
+     /* Ícone em branco */
 }
 
 .download-list {
